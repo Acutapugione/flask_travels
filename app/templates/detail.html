@@ -3,16 +3,27 @@
 
 {% block main %}
 <div class="container">
+    <h2>{{item.title}}</h2>
+    <h4>{{item.subtitle}}</h4>
+    <p class="card-text">{{item.description}}</p>
+
+    {% for elem in item.tours %}
+   
     <div class="card h-100">
-        <img src="{{item.logo}}" class="card-img-top" alt="{{item.logo}}">
+        <img src="{{elem.img}}" class="card-img-top" alt="{{item.img}}">
         <div class="card-body">
-            <h5 class="card-title">{{item.title}}</h5>
-            <p class="card-text">{{item.long_description}}</p>
+            <h5 class="card-title">{{elem.title}}</h5>
+            <p class="card-text">Country: {{elem.country}}</p>
+            <p class="card-text">Stars: {{elem.stars}}</p>
+
+            <p class="card-text">Desc: {{elem.description}}</p>
+            <p class="card-text">{{elem.long_description}}</p>
         </div>
         <div class="card-footer">
-            <small class="text-body-secondary">{{item.amount}}</small>
+            <small class="text-body-secondary">Time: {{elem.time}}</small>
         </div>
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
